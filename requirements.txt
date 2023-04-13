@@ -1,0 +1,7 @@
+moviepy
+Wand
+streamlit
+qrcode
+Pillow
+numpy
+pyzbar
