@@ -20,12 +20,16 @@ header, template and closing in the output folder in mp4 format.
 clip.mp4, which is your clip can stay in the root.
 
 # To run as a docker
-```docker build -t tandem_video .
-docker run -v "$(pwd)":/app/output tandem_video -f clip_short.mp4 -n Test -d 10/08/1977 -l Salamanca -v 0.3```
+```
+docker build -t tandem_video .
+docker run -v "$(pwd)":/app/output tandem_video -f clip_short.mp4 -n Test -d 10/08/1977 -l Salamanca -v 0.3
+```
 
 # To push to docker hub
-```docker tag tandem_video simseve/tandem-video:1.0
-docker push simseve/tandem-video:1.0```
+```
+docker tag tandem_video simseve/tandem-video:1.0
+docker push simseve/tandem-video:1.0
+```
 
 # To pull from docker 
 `docker pull simseve/tandem-video:1.0`
