@@ -23,6 +23,8 @@ clip.mp4, which is your clip can stay in the root.
 ```
 docker build -t tandem_video .
 docker run -v "$(pwd)":/app/output tandem_video -f clip_short.mp4 -n Test -d 10/08/1977 -l Salamanca -v 0.3
+
+docker run -v "$(pwd)":/app/output -v "$(pwd)"/config.ini:/app/config.ini tandem_video -f clip_short.mp4 -n Test -d 10/08/1977 -l Salamanca -v 0.3
 ```
 
 # To push to docker hub
