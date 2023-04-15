@@ -5,6 +5,7 @@ from logger_config import setup_logger
 import configparser
 import numpy as np
 import json
+import datetime
 
 logger = setup_logger()
 
@@ -12,8 +13,8 @@ logger = setup_logger()
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-video_template_directory = config.get('constants', 'video_template_directory')
-video_output_directory = config.get('constants', 'video_output_directory')
+tmp_directory = config.get('constants', 'tmp_directory')
+
 empty_body = config.getboolean('constants', 'EMPTY_BODY')
 empty_header = config.getboolean('constants', 'EMPTY_HEADER')
 empty_closing = config.getboolean('constants', 'EMPTY_CLOSING')
@@ -278,7 +279,7 @@ def _overlay_image_on_video(video, image, position):
     return composite
 
 def _resize_logo(company_logo_path):
-    image = Image.open(os.path.join(video_template_directory, company_logo_path))
+    image = Image.open(company_logo_path)
 
     # Calculate the new height while maintaining the aspect ratio
     new_width
@@ -415,8 +416,10 @@ def create_video(clip, header, body, closing, flight_date, location, audio_file,
     final = _text_overlay(f'{location}, {flight_date:%d %B %Y}', video_with_mixed_audio, "top-right", 40)
 
     # Generate a unique filename using a UUID
-    unique_filename = f"{flight_date}_{location}__{uuid}.mp4"
-    output_path = os.path.join(video_output_directory, unique_filename)
+    # Create a timestamp string
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    unique_filename = f"{timestamp}_{flight_date}_{location}__{uuid}.mp4"
+    output_path = os.path.join(tmp_directory, unique_filename)
 
     # Try to explore faster codec so replacing the working libx264 with h264_nvenc h264_videotoolbox
     logger.info(f"Starting to write to file")

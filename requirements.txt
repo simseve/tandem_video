@@ -5,3 +5,5 @@ qrcode
 Pillow
 numpy
 pyzbar
+dropbox
+python-dotenv

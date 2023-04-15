@@ -45,3 +45,6 @@ docker push simseve/tandem-video:1.0
 
 ## alternatively run
 `python app.py  -f clip_short.mp4 -n Simone -d 23/4/2023 -l Bergeggi`
+
+## You can also use email and volume as a optional switches
+`python app.py  -f clip_short.mp4 -n Simone -d 23/4/2023 -l Bergeggi -v 0.3 -e simone.severini.simone@icloud.com`
