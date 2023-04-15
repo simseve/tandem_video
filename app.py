@@ -290,7 +290,7 @@ def main(args):
             sender_email = 'severini.simone@gmail.com'
             receiver_email = args.email
             subject = f'Volo tandem del {flight_date} a {location}'
-            body = f'Carissimo/a,\n\ngrazie per aver condividiso con me questo bellissimo volo. Questo il link dove scaricare la tua esperienza di volo libero in parapendio. Ciao Simone {link}'
+            body = f'Carissimo/a {passenger},\n\ngrazie per aver condividiso con me questo bellissimo volo. Questo il link dove scaricare la tua esperienza di volo libero in parapendio. Ciao Simone {link}'
 
             send_email(sender_email, receiver_email, subject, body)
             logger.info(f"Email sent to {args.email}")

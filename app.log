@@ -1,0 +1,100 @@
+2023-04-15 14:31:35,841 - INFO - Passenger name set as Test Passenger
+2023-04-15 14:31:35,841 - INFO - flight date and location set to 2022-04-13 and Test location
+2023-04-15 14:31:35,841 - INFO - The App has started with uuid: c108ad2c-3101-40cd-8498-b82f6c6af9af
+2023-04-15 14:31:35,841 - INFO - The directory ./tmp does not exist but it was created!
+2023-04-15 14:31:35,842 - INFO - Request to files/download
+2023-04-15 14:31:37,388 - INFO - None
+2023-04-15 14:31:37,639 - INFO - Customer Clip is loaded named ./tmp/clip_short.mp4
+2023-04-15 14:31:37,639 - INFO - Request to files/download
+2023-04-15 14:31:39,634 - INFO - None
+2023-04-15 14:31:39,634 - INFO - Request to files/download
+2023-04-15 14:31:41,605 - INFO - None
+2023-04-15 14:31:41,606 - INFO - Request to files/download
+2023-04-15 14:31:42,960 - INFO - None
+2023-04-15 14:31:42,962 - INFO - Request to files/download
+2023-04-15 14:31:44,441 - INFO - None
+2023-04-15 14:31:44,442 - INFO - Request to files/download
+2023-04-15 14:31:45,383 - INFO - None
+2023-04-15 14:31:45,384 - INFO - Request to files/download
+2023-04-15 14:31:46,560 - INFO - None
+2023-04-15 14:31:46,561 - INFO - Request to files/download
+2023-04-15 14:31:47,182 - INFO - None
+2023-04-15 14:31:47,183 - INFO - Request to files/download
+2023-04-15 14:31:48,915 - INFO - None
+2023-04-15 14:31:49,194 - INFO - Empty Header loaded
+2023-04-15 14:31:49,293 - INFO - Empty Body template loaded
+2023-04-15 14:31:49,393 - INFO - Empty Closing loaded
+2023-04-15 14:31:49,394 - INFO - Volume set to 0.3
+2023-04-15 14:31:49,462 - INFO - Default audio loaded None
+2023-04-15 14:31:49,462 - INFO - start_trim_sec = 0 and stop_trim_sec = 0 
+2023-04-15 14:31:49,462 - INFO - Check if the closing must be customized
+2023-04-15 14:31:49,462 - INFO - Empty closing is True
+2023-04-15 14:31:49,462 - INFO - Customizing heading clip -> started
+2023-04-15 14:31:49,462 - INFO - Preparing header clip -> started
+2023-04-15 14:31:49,462 - INFO - overlaying YOUR FLIGHT EXPERIENCE to <moviepy.video.io.VideoFileClip.VideoFileClip object at 0x15748dd80>
+2023-04-15 14:31:49,536 - INFO - Text overlaying job succesfully completed
+2023-04-15 14:31:49,536 - INFO - Applying slogan - done
+2023-04-15 14:31:49,542 - INFO - Logo resized
+2023-04-15 14:31:49,543 - INFO - Overlaying image on video started
+2023-04-15 14:31:49,543 - INFO - Video size: w1920, h1080
+2023-04-15 14:31:49,543 - INFO - Image size: w310, h367
+2023-04-15 14:31:49,561 - INFO - Overlaying image job succesfully completed
+2023-04-15 14:31:49,562 - INFO - Applying logo to header - done
+2023-04-15 14:31:49,562 - INFO - Customizing heading clip -> done
+2023-04-15 14:31:49,562 - INFO - Customizing closing clip -> started
+2023-04-15 14:31:49,562 - INFO - Preparing closing clip function is started
+2023-04-15 14:31:49,564 - INFO - overlaying Test Passenger to <moviepy.video.io.VideoFileClip.VideoFileClip object at 0x15748da80>
+2023-04-15 14:31:49,613 - INFO - Text overlaying job succesfully completed
+2023-04-15 14:31:49,633 - INFO - Generating QR code for www.seve-ai.com
+2023-04-15 14:31:49,641 - INFO - Generating QR code job succesfully completed
+2023-04-15 14:31:49,641 - INFO - QR code succesfuly generated
+2023-04-15 14:31:49,641 - INFO - Overlaying image on video started
+2023-04-15 14:31:49,641 - INFO - Video size: w1920, h1080
+2023-04-15 14:31:49,641 - INFO - Image size: w296, h296
+2023-04-15 14:31:49,657 - INFO - Overlaying image job succesfully completed
+2023-04-15 14:31:49,657 - INFO - Applying company logo - started
+2023-04-15 14:31:49,663 - INFO - Logo resized
+2023-04-15 14:31:49,663 - INFO - Overlaying image on video started
+2023-04-15 14:31:49,663 - INFO - Video size: w1920, h1080
+2023-04-15 14:31:49,663 - INFO - Image size: w310, h367
+2023-04-15 14:31:49,679 - INFO - Overlaying image job succesfully completed
+2023-04-15 14:31:49,679 - INFO - Applying company logo - done
+2023-04-15 14:31:49,679 - INFO - Preparing closing clip function is completed
+2023-04-15 14:31:49,679 - INFO - Customizing closing clip -> done
+2023-04-15 14:31:49,680 - INFO - Create final video job started
+2023-04-15 14:31:49,680 - INFO - Start preparing the clip to overlay to an existing body template
+2023-04-15 14:31:49,680 - INFO - extend_video -> extended duration = 6.0
+2023-04-15 14:31:49,680 - INFO - extend_video ->job completed
+2023-04-15 14:31:49,733 - INFO - Clip succesfully overlayied to an existing body template
+2023-04-15 14:31:49,734 - INFO - Crossfading <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x15776bca0> with <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x15776b9a0> for this duration 1
+2023-04-15 14:31:49,797 - INFO - Crossfading job succesfully completed
+2023-04-15 14:31:49,797 - INFO - overlaying SEVI'S FLY to <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x1577943d0>
+2023-04-15 14:31:49,842 - INFO - Text overlaying job succesfully completed
+2023-04-15 14:31:49,842 - INFO - overlaying severini.simone@gmail.com to <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x157794fa0>
+2023-04-15 14:31:49,882 - INFO - Text overlaying job succesfully completed
+2023-04-15 14:31:49,882 - INFO - overlaying www.seve-ai.com to <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x157795a50>
+2023-04-15 14:31:49,914 - INFO - Text overlaying job succesfully completed
+2023-04-15 14:31:49,914 - INFO - overlaying +41 76 8050877 to <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x1577964d0>
+2023-04-15 14:31:49,949 - INFO - Text overlaying job succesfully completed
+2023-04-15 14:31:49,951 - INFO - Crossfading <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x157769e40> with <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x157796f50> for this duration 1
+2023-04-15 14:31:50,042 - INFO - Crossfading job succesfully completed
+2023-04-15 14:31:50,042 - INFO - Mixing audio started with volume = 0.3
+2023-04-15 14:31:50,042 - INFO - Mixing audio job completed
+2023-04-15 14:31:50,042 - INFO - overlaying Test location, 13 April 2022 to <moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip object at 0x157797e20>
+2023-04-15 14:31:50,083 - INFO - Text overlaying job succesfully completed
+2023-04-15 14:31:50,083 - INFO - Starting to write to file
+2023-04-15 14:32:21,962 - WARNING - /Users/simone/miniforge3/envs/vid-edit/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file ./tmp/header_empty.mp4, 6220800 bytes wanted but 0 bytes read,at frame 120/122, at time 4.00/4.05 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2023-04-15 14:32:22,523 - WARNING - /Users/simone/miniforge3/envs/vid-edit/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file ./tmp/header_empty.mp4, 6220800 bytes wanted but 0 bytes read,at frame 121/122, at time 4.03/4.05 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2023-04-15 14:40:46,579 - INFO - Writing to file completed
+2023-04-15 14:40:46,580 - INFO - Create video job completed
+2023-04-15 14:40:46,580 - INFO - ./tmp/2023-04-15_14-31-50_2022-04-13_Test location__c108ad2c-3101-40cd-8498-b82f6c6af9af.mp4 succesfully created
+2023-04-15 14:40:46,586 - INFO - Request to files/upload
+2023-04-15 14:40:52,447 - INFO - FileMetadata(client_modified=datetime.datetime(2023, 4, 15, 12, 40, 52), content_hash='1bc0480c4b5f2e20135f50ffd2d98421381b81a649063be4b535ae86e7a23024', export_info=NOT_SET, file_lock_info=NOT_SET, has_explicit_shared_members=NOT_SET, id='id:Bd26j_50Z1YAAAAAAAAAMg', is_downloadable=True, media_info=NOT_SET, name='2023-04-15_14-31-50_2022-04-13_Test location__c108ad2c-3101-40cd-8498-b82f6c6af9af.mp4', parent_shared_folder_id=NOT_SET, path_display='/output/2023-04-15_14-31-50_2022-04-13_Test location__c108ad2c-3101-40cd-8498-b82f6c6af9af.mp4', path_lower='/output/2023-04-15_14-31-50_2022-04-13_test location__c108ad2c-3101-40cd-8498-b82f6c6af9af.mp4', preview_url=NOT_SET, property_groups=NOT_SET, rev='5f95f44a7b7f3e973a161', server_modified=datetime.datetime(2023, 4, 15, 12, 40, 52), sharing_info=NOT_SET, size=14148086, symlink_info=NOT_SET)
+2023-04-15 14:40:52,448 - INFO - Request to sharing/create_shared_link_with_settings
+2023-04-15 14:40:53,899 - INFO - File https://www.dropbox.com/s/q3njrfh0iwyysd5/2023-04-15_14-31-50_2022-04-13_Test%20location__c108ad2c-3101-40cd-8498-b82f6c6af9af.mp4?dl=1 ready to be downloaded
+2023-04-15 14:40:53,903 - INFO - Preparing to send email
+2023-04-15 14:40:55,854 - INFO - Email sent to severini.simone@icloud.com
