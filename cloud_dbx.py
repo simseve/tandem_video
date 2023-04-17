@@ -14,7 +14,7 @@ from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 # # Set the access token as an environment variable
 # access_token = os.environ['DROPBOX_ACCESS_TOKEN']
 
-def dropbox_connect(access_token):
+def _dropbox_connect(access_token):
     """Create a connection to Dropbox."""
 
     try:
@@ -29,7 +29,7 @@ def dropbox_list_files(access_token, path):
     """Return a Pandas dataframe of files in a given Dropbox folder path in the Apps directory.
     """
 
-    dbx = dropbox_connect(access_token)
+    dbx = _dropbox_connect(access_token)
 
     try:
         files = dbx.files_list_folder(path).entries
@@ -45,6 +45,7 @@ def dropbox_list_files(access_token, path):
                 files_list.append(metadata)
 
         df = pd.DataFrame.from_records(files_list)
+        print(df.name)
         return df.sort_values(by='server_modified', ascending=False)
 
     except Exception as e:
@@ -55,7 +56,7 @@ def dropbox_download_file(access_token, dropbox_file_path, local_file_path):
     """Download a file from Dropbox to the local machine."""
 
     try:
-        dbx = dropbox_connect(access_token)
+        dbx = _dropbox_connect(access_token)
 
         with open(local_file_path, 'wb') as f:
             metadata, result = dbx.files_download(path=dropbox_file_path)
@@ -80,7 +81,7 @@ def dropbox_upload_file(access_token, local_path, local_file, dropbox_file_path)
     """
 
     try:
-        dbx = dropbox_connect(access_token)
+        dbx = _dropbox_connect(access_token)
 
         local_file_path = pathlib.Path(local_path) / local_file
 
@@ -104,7 +105,7 @@ def dropbox_get_link(access_token, dropbox_file_path):
     """
 
     try:
-        dbx = dropbox_connect(access_token)
+        dbx = _dropbox_connect(access_token)
         shared_link_metadata = dbx.sharing_create_shared_link_with_settings(dropbox_file_path)
         shared_link = shared_link_metadata.url
         return shared_link.replace('?dl=0', '?dl=1')

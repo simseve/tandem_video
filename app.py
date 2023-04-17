@@ -301,7 +301,7 @@ if __name__ == '__main__':
     arguments = parse_arguments(test_mode)
     main(arguments)
 
-# Example command to run
+# Example command to run to bypass all the flags
 # export TEST_MODE=1
 # python app.py -f clip_short.mp4 -n Simone -d 23/4/2023 -l Bergeggi
 
