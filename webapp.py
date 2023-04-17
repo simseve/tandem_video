@@ -35,7 +35,10 @@ def validate_file_exists(filepath):
         return False
     else:
         return True
-    
+
+# Add a title for the Streamlit app
+st.title("Video Creator for your tandem experience")
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -81,88 +84,109 @@ except Exception as e:
     logger.error(f"Error creating directory '{tmp_directory}': {str(e)}")
 
 
+
 # Download Header empty template
 dbx_header_empty_file_path = os.path.join(dbx_video_template_directory, header_empty_path)
 tmp_header_empty_file_path = os.path.join(tmp_directory, header_empty_path)
-meta_header_empty = dropbox_download_file(access_token, dbx_header_empty_file_path, tmp_header_empty_file_path)
-logger.info(f"{meta_header_empty}")
-
+st.text_input("Header empty location", value=dbx_header_empty_file_path)
 # Download Header not empty template
 dbx_tmp_header_file_path = os.path.join(dbx_video_template_directory, header_path)
 tmp_header_file_path = os.path.join(tmp_directory, header_path)
-meta_header = dropbox_download_file(access_token, dbx_tmp_header_file_path, tmp_header_file_path)
-logger.info(f"{meta_header}")
+st.text_input("Header location", value=dbx_tmp_header_file_path)
 
 # Download Body empty template
 dbx_body_empty_file_path = os.path.join(dbx_video_template_directory, body_empty_path)
 tmp_body_empty_file_path = os.path.join(tmp_directory, body_empty_path)
-meta_body_empty = dropbox_download_file(access_token, dbx_body_empty_file_path, tmp_body_empty_file_path)
-logger.info(f"{meta_body_empty}")
-
+st.text_input("Body empty location", value=dbx_body_empty_file_path)
 # Download Body template
 dbx_body_file_path = os.path.join(dbx_video_template_directory, body_path)
 tmp_body_file_path = os.path.join(tmp_directory, body_path)
-meta_body = dropbox_download_file(access_token, dbx_body_file_path, tmp_body_file_path)
-logger.info(f"{meta_body}")
-
+st.text_input("Body location", value=dbx_body_file_path)
 # Download Closing Empty template
 dbx_closing_empty_file_path = os.path.join(dbx_video_template_directory, closing_empty_path)
 tmp_closing_empty_file_path = os.path.join(tmp_directory, closing_empty_path)
-meta_closing_empty = dropbox_download_file(access_token, dbx_closing_empty_file_path, tmp_closing_empty_file_path)
-logger.info(f"{meta_closing_empty}")
-
+st.text_input("Closing location",value=dbx_closing_empty_file_path)
 # Download Closing template
 dbx_tmp_closing_file_path = os.path.join(dbx_video_template_directory, closing_path)
 tmp_closing_file_path = os.path.join(tmp_directory, closing_path)
-meta_closing = dropbox_download_file(access_token, dbx_tmp_closing_file_path, tmp_closing_file_path)
-logger.info(f"{meta_closing}")
+st.text_input("Closing empty location", value=dbx_tmp_closing_file_path)
 
 # Download the company logo file
 dbx_company_logo_file_path = os.path.join(dbx_video_template_directory, company_logo_path)
 tmp_company_logo_file_path = os.path.join(tmp_directory, company_logo_path)
-meta_logo = dropbox_download_file(access_token, dbx_company_logo_file_path, tmp_company_logo_file_path)
-logger.info(f"{meta_logo}")
+st.text_input("Company logo location", value=dbx_company_logo_file_path)
 
 # Dowload the MP3 audio file
 dbx_default_audio_file_path = os.path.join(dbx_video_template_directory, default_audio_path)
 tmp_default_audio_path = os.path.join(tmp_directory, default_audio_path)
-meta_audio = dropbox_download_file(access_token, dbx_default_audio_file_path, tmp_default_audio_path)
-logger.info(f"{meta_audio}")
+st.text_input("Default audio location", value=dbx_default_audio_file_path)
 
 
-# Load the header video
-if empty_header:
-    if validate_file_exists(tmp_header_empty_file_path):
-        header = VideoFileClip(os.path.join(tmp_directory, header_empty_path))
-        logger.info(f"Empty Header loaded")
-else:
-    if validate_file_exists(tmp_header_file_path):
-        header = VideoFileClip(os.path.join(tmp_directory, header_path))
-        logger.info(f"Header loaded")
 
-# Load the main video
-if empty_body:
-    if validate_file_exists(tmp_body_empty_file_path):
-        body = VideoFileClip(os.path.join(tmp_directory, body_empty_path))
-        logger.info(f"Empty Body template loaded")
-else:
-    if validate_file_exists(tmp_body_file_path):
-        body = VideoFileClip(os.path.join(tmp_directory, body_path))
-        logger.info(f"Body  loaded")    
+if st.button("Get all templates", key="download_templates"):
+    st.divider()
 
-# Load the second video (the one you want to insert into the main video)
-if empty_closing:
-    if validate_file_exists(tmp_closing_empty_file_path):
-        closing = VideoFileClip(os.path.join(tmp_directory, closing_empty_path))
-        logger.info(f"Empty Closing loaded")
-else:
-    if validate_file_exists(tmp_closing_file_path):
-        closing = VideoFileClip(os.path.join(tmp_directory, closing_path))
-        logger.info(f"Closing loaded")  
+    meta_header_empty = dropbox_download_file(access_token, dbx_header_empty_file_path, tmp_header_empty_file_path)
+    logger.info(f"{meta_header_empty}")
 
 
-# Add a title for the Streamlit app
-st.title("Video Creator for your tandem experience")
+    meta_header = dropbox_download_file(access_token, dbx_tmp_header_file_path, tmp_header_file_path)
+    logger.info(f"{meta_header}")
+
+
+    meta_body_empty = dropbox_download_file(access_token, dbx_body_empty_file_path, tmp_body_empty_file_path)
+    logger.info(f"{meta_body_empty}")
+
+
+    meta_body = dropbox_download_file(access_token, dbx_body_file_path, tmp_body_file_path)
+    logger.info(f"{meta_body}")
+
+
+    meta_closing_empty = dropbox_download_file(access_token, dbx_closing_empty_file_path, tmp_closing_empty_file_path)
+    logger.info(f"{meta_closing_empty}")
+
+
+    meta_closing = dropbox_download_file(access_token, dbx_tmp_closing_file_path, tmp_closing_file_path)
+    logger.info(f"{meta_closing}")
+
+    meta_logo = dropbox_download_file(access_token, dbx_company_logo_file_path, tmp_company_logo_file_path)
+    logger.info(f"{meta_logo}")
+
+
+    meta_audio = dropbox_download_file(access_token, dbx_default_audio_file_path, tmp_default_audio_path)
+    logger.info(f"{meta_audio}")
+
+
+    # Load the header video
+    if empty_header:
+        if validate_file_exists(tmp_header_empty_file_path):
+            header = VideoFileClip(os.path.join(tmp_directory, header_empty_path))
+            logger.info(f"Empty Header loaded")
+    else:
+        if validate_file_exists(tmp_header_file_path):
+            header = VideoFileClip(os.path.join(tmp_directory, header_path))
+            logger.info(f"Header loaded")
+
+    # Load the main video
+    if empty_body:
+        if validate_file_exists(tmp_body_empty_file_path):
+            body = VideoFileClip(os.path.join(tmp_directory, body_empty_path))
+            logger.info(f"Empty Body template loaded")
+    else:
+        if validate_file_exists(tmp_body_file_path):
+            body = VideoFileClip(os.path.join(tmp_directory, body_path))
+            logger.info(f"Body  loaded")    
+
+    # Load the second video (the one you want to insert into the main video)
+    if empty_closing:
+        if validate_file_exists(tmp_closing_empty_file_path):
+            closing = VideoFileClip(os.path.join(tmp_directory, closing_empty_path))
+            logger.info(f"Empty Closing loaded")
+    else:
+        if validate_file_exists(tmp_closing_file_path):
+            closing = VideoFileClip(os.path.join(tmp_directory, closing_path))
+            logger.info(f"Closing loaded")  
+
 
 # Add input boxes for flight date and location
 flight_date = st.date_input("Flight Date", datetime.date.today())
@@ -199,7 +223,7 @@ else:
 # uploaded_video = st.file_uploader("Upload a video clip", type=["mp4", "avi", "mov"])
 files = dropbox_list_files(access_token, dbx_video_input_directory)
 
-print(files)
+logger.info(files)
 
 if not files.empty:
     uploaded_video = st.selectbox("Select a file from the folder:", files.name)
@@ -208,24 +232,24 @@ else:
     st.write("No files found in the specified folder. Please upload your video")
 
 
-if st.button("Read video", key="read_video"):
+if st.button("Load flight clip", key="read_video"):
     clip_name = uploaded_video
     dbx_input_file_path = os.path.join(dbx_video_input_directory, clip_name)   
     tmp_input_file_path = os.path.join(tmp_directory, clip_name)
     meta_input = dropbox_download_file(access_token, dbx_input_file_path, tmp_input_file_path)
     logger.info(f"{meta_input}")
-    logger.info(f"Video clip file downloaded {clip_name}")
+    logger.info(f"Video clip file downloaded {tmp_input_file_path}")
     
     with st.spinner("Processing video..."):
-        # Save the uploaded video to a temporary file
-        tfile = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") 
-        tfile.write(uploaded_video.read())
+        # # Save the uploaded video to a temporary file
+        # tfile = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") 
+        # tfile.write(uploaded_video.read())
         
         # Load the video using MoviePy
-        video_clip = VideoFileClip(tfile.name)
+        video_clip = VideoFileClip(tmp_input_file_path)
 
         # Display the processed video
-        st.video(tfile.name)
+        st.video(tmp_input_file_path)
         st.write(f"The video lenght is: {video_clip.duration}s")
         logger.info(f"The video lenght is: {video_clip.duration}s")
 
@@ -235,17 +259,19 @@ if st.button("Create Video", key="video_create"):
 
         if empty_header:
             logger.info(f"Customizing heading clip -> started")
-            header = prepare_heading(header, slogan, company_logo_path)
-            logger.info(f"Customizing heading clip -> done")
+            if validate_file_exists(tmp_company_logo_file_path):
+                header = prepare_heading(header, slogan, tmp_company_logo_file_path)
+                logger.info(f"Customizing heading clip -> done")
 
 
         # if in config.ini we set to True PREP_CLOSING then we rely on an empty template and apply our text
         if empty_closing: 
             logger.info(f"Customizing closing clip -> started")
             # If you pass a closing clip that is empty make sure the variable EMPTY_CLOSING=True in config.ini
-            closing = prepare_closing(closing, passenger, generated_uuid, company_logo_path)
+            if validate_file_exists(tmp_company_logo_file_path):
+                closing = prepare_closing(closing, passenger, generated_uuid, tmp_company_logo_file_path)
 
-            logger.info(f"Customizing closing clip -> done")
+                logger.info(f"Customizing closing clip -> done")
 
 
 
@@ -286,7 +312,7 @@ if st.button("Create Video", key="video_create"):
         # )
         
         # Clean up the temporary files
-        os.unlink(tfile.name)
+        # os.unlink(tfile.name)
         # logger.info(f"All resource released")
 
 
