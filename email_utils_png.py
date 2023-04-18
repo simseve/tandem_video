@@ -5,8 +5,11 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 from dotenv import load_dotenv
+from email.mime.image import MIMEImage
 
-def send_email(sender_email, receiver_email, subject, body, attachment_path=None):
+from PIL import Image
+
+def send_email(sender_email, receiver_email, subject, link):
     """
     Send an email with or without an attachment.
     
@@ -24,23 +27,33 @@ def send_email(sender_email, receiver_email, subject, body, attachment_path=None
     load_dotenv()
 
     # Set up the email message
-    message = MIMEMultipart()
+    message = MIMEMultipart("related")
     message['From'] = sender_email
     message['To'] = receiver_email
     message['Subject'] = subject
-    message.attach(MIMEText(body, 'plain'))
 
-    # Add an attachment (optional)
-    if attachment_path:
-        filename = attachment_path.split('/')[-1]
-        attachment = open(attachment_path, 'rb')
-        part = MIMEBase('application', 'octet-stream')
-        part.set_payload(attachment.read())
-        encoders.encode_base64(part)
-        part.add_header('Content-Disposition', f"attachment; filename= {filename}")
-        message.attach(part)
+    # Convert the background image to base64
+    with open("./tmp/thanks.png", "rb") as f:
+        img_data = f.read()
 
-    # Send the email
+    image = MIMEImage(img_data)
+    image.add_header("Content-ID", "<background>")
+    message.attach(image)
+
+    # Create the HTML content with the background image
+    html = f"""\
+    <html>
+    <head></head>
+    <body style="background-image: url('cid:background');">
+    <p>To download the video, click <a href="{link}" download>here</a>.</p>
+
+    </body>
+    </html>
+    """
+
+    html_part = MIMEText(html, "html")
+    message.attach(html_part)    # Send the email
+
     try:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
@@ -57,6 +70,6 @@ if __name__ == '__main__':
     sender_email = 'severini.simone@gmail.com'
     receiver_email = 'severini.simone@icloud.com'
     subject = 'Grazie per aver volato con Simone '
-    body = f'Carissimo/a,\n\ngrazie per aver condividiso con me questo bellissimo volo. Questo il link dove scaricarlo http://www.seve-ai.com'
+    link="http://www.corriere.it"
 
-    send_email(sender_email, receiver_email, subject, body)
+    send_email(sender_email, receiver_email, subject, link)
